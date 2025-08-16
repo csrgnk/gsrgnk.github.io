@@ -1,64 +1,82 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="te">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome to GSRGNK</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Om Namo Narayanaya - Bhakthi Channel</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #ddd;
-    }
-    h1 {
-      color: #0055aa;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      font-size: 14px;
-      color: #777;
-      margin-top: 40px;
-    }
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+    header { background: #4a148c; color: white; padding: 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { margin: 5px 0; font-size: 1rem; }
+
+    nav { background: #6a1b9a; padding: 10px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    .submenu { background: #7b1fa2; padding: 8px; text-align: center; }
+    .submenu a { color: #fff; margin: 0 10px; text-decoration: none; font-size: 0.95rem; }
+    .submenu a:hover { text-decoration: underline; }
+
+    .search-box { text-align: center; margin: 20px; }
+    .search-box input { padding: 8px; width: 50%; }
+
+    .container { display: flex; margin: 20px; }
+    .content { flex: 3; padding: 10px; }
+    .sidebar { flex: 1; padding: 10px; background: #fff; border-left: 1px solid #ddd; }
+    .post { background: #fff; margin-bottom: 20px; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    footer { background: #4a148c; color: white; text-align: center; padding: 15px; margin-top: 20px; }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Welcome to GSRGNK Website</h1>
-    <p>This site is powered by GitHub Pages</p>
+    <h1>Om Namo Narayanaya</h1>
+    <p>Bhakthi Channel</p>
   </header>
 
-  <div class="card">
-    <h2>About</h2>
-    <p>This is a demo site created directly from a mobile phone using GitHub Codespaces. You can edit this file anytime to update your site.</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://omnnbc.com" target="_blank">Custom Link</a>
+  </nav>
+
+  <div class="submenu">
+    <a href="#">Dasabodha Grantha Telugu Lyrics</a>
+    <a href="dashakam1.html">Dashakam 1</a>
+    <a href="#">Dashakam 2</a>
   </div>
 
-  <div class="card">
-    <h2>Next Steps</h2>
-    <ul>
-      <li>Add more HTML pages (example: <code>about.html</code>, <code>contact.html</code>)</li>
-      <li>Link them with &lt;a&gt; tags</li>
-      <li>Customize design with CSS</li>
-    </ul>
+  <div class="search-box">
+    <input type="text" placeholder="Search posts...">
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="post">
+        <h2>Welcome to Om Namo Narayanaya Bhakthi Channel</h2>
+        <p>This site shares Telugu devotional lyrics, Dasabodha Grantha, and spiritual content for devotees.</p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h3>Latest Posts</h3>
+      <ul>
+        <li><a href="dashakam1.html">Dashakam 1 Lyrics</a></li>
+        <li><a href="#">Dashakam 2 Lyrics</a></li>
+      </ul>
+
+      <h3>Categories</h3>
+      <ul>
+        <li><a href="dashakam1.html">Dasabodha Grantha</a></li>
+      </ul>
+    </div>
   </div>
 
   <footer>
-    &copy; 2025 GSRGNK
+    <p>© 2025 Om Namo Narayanaya Bhakthi Channel. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
