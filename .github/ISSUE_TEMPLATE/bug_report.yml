@@ -1,0 +1,46 @@
+name: 🐛 Bug Report
+about: Report a bug or issue in Om Namo Narayanaya Bhakthi Channel site
+title: "[Bug] "
+labels: bug
+assignees: ''
+
+body:
+  - type: markdown
+    attributes:
+      value: "### Bug Description\nA clear description of the bug or issue."
+  - type: input
+    id: steps_to_reproduce
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Step by step guide to reproduce the bug"
+      placeholder: "1. Go to 'Dashakam 1'\n2. Click 'Samasam 1'\n3. See error..."
+      required: true
+  - type: input
+    id: expected_behavior
+    attributes:
+      label: "Expected Behavior"
+      description: "What should happen instead?"
+      placeholder: "Page should display lyrics correctly."
+      required: true
+  - type: input
+    id: screenshots
+    attributes:
+      label: "Screenshots / Evidence"
+      description: "Paste screenshots or links if available"
+      placeholder: "Optional"
+      required: false
+  - type: dropdown
+    id: device
+    attributes:
+      label: "Device"
+      options:
+        - Desktop
+        - Mobile
+        - Tablet
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: "Browser / Version"
+      placeholder: "Chrome, Firefox, Safari etc."
+      required: false
