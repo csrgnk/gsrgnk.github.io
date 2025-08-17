@@ -2,38 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post Title - Om Namo Narayanaya</title>
-  <link rel="stylesheet" href="style.css">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Om Namo Narayanaya</h1>
-    <p class="tagline">Bhakthi Channel</p>
-    <div class="search-box">
-      <input type="text" placeholder="Search...">
-      <button>Search</button>
-    </div>
+  <!-- Top Site Name -->
+  <header class="site-header">
+    {{ site.title }}
   </header>
 
-  <!-- Breadcrumb -->
-  <div class="breadcrumb">
-    <a href="index.html">Home</a> › Post Title
+  <div class="container">
+
+    <!-- Back to Home -->
+    <a href="/" class="back-home">⬅ Back to Home</a>
+
+    <!-- Post Title -->
+    <div class="post-title">
+      {{ page.title }}
+    </div>
+
+    <!-- Post Content -->
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <!-- Share Buttons -->
+    <div class="share">
+      <a href="https://wa.me/?text={{ page.title }}%20{{ page.url | absolute_url }}" class="share-btn whatsapp">W</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" class="share-btn facebook">F</a>
+      <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" class="share-btn twitter">T</a>
+      <a href="https://t.me/share/url?url={{ page.url | absolute_url }}&text={{ page.title }}" class="share-btn telegram">TG</a>
+    </div>
+
+    <!-- Like Button -->
+    <div class="like-box">
+      <button class="like-btn" onclick="likePost()">❤️ Like <span id="like-count">0</span></button>
+    </div>
+
+    <!-- Comments -->
+    <div class="comments">
+      <h3>Leave a Comment</h3>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Comment"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Related Posts -->
+    <div class="related">
+      <h3>Related Posts</h3>
+      <ul>
+        {% for post in site.posts limit:3 %}
+          {% if post.url != page.url %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
   </div>
 
-  <!-- Post/Page Content -->
-  <main class="post-box">
-    <h2>Post Title</h2>
-    <p><b>Example intro:</b> This is your devotional post or article. Replace this text with your WordPress post content. Copy-paste directly into this section.</p>
+<script>
+  // Simple Like Button Counter (client-side only)
+  let count = 0;
+  function likePost() {
+    count++;
+    document.getElementById("like-count").innerText = count;
+  }
+</script>
 
-    <h3>Heading Example</h3>
-    <p>
-      You can use <b>bold text</b>, <i>italic text</i>, bullet points, images, or any HTML code from WordPress.
-    </p>
-
-    <ul>
+</body>
+</html>
       <li>Devotional teachings</li>
       <li>Slokas / Mantras</li>
       <li>Spiritual practices</li>
