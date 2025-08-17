@@ -1,99 +1,79 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }} - {{ site.title }}</title>
+  <title>{{ page.title }}</title>
   <link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- Lunr.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
 </head>
 <body>
-
-  <!-- Top Site Name -->
+  <!-- 🔹 Site Name -->
   <header class="site-header">
-    {{ site.title }}
+    <h1><a href="/">My Website</a></h1>
   </header>
 
-  <div class="container">
+  <!-- 🔹 Search Box -->
+  <div class="search-box">
+    <input type="text" id="searchBox" placeholder="Search posts...">
+  </div>
+  <ul id="results"></ul>
 
-    <!-- Back to Home -->
-    <a href="/" class="back-home">⬅ Back to Home</a>
-
-    <!-- Post Title -->
-    <div class="post-title">
-      {{ page.title }}
+  <!-- 🔹 Post Box -->
+  <main class="post-container">
+    <div class="post-header">
+      <a class="back-home" href="/">← Back to Home</a>
+      <h2 class="post-title">{{ page.title }}</h2>
     </div>
 
-    <!-- Post Content -->
     <div class="post-content">
       {{ content }}
     </div>
 
-    <!-- Share Buttons -->
-    <div class="share">
-      <a href="https://wa.me/?text={{ page.title }}%20{{ page.url | absolute_url }}" class="share-btn whatsapp">W</a>
-      <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" class="share-btn facebook">F</a>
-      <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" class="share-btn twitter">T</a>
-      <a href="https://t.me/share/url?url={{ page.url | absolute_url }}&text={{ page.title }}" class="share-btn telegram">TG</a>
+    <!-- 🔹 Share Buttons -->
+    <div class="share-box">
+      <a href="#" class="share-btn fb">Facebook</a>
+      <a href="#" class="share-btn tw">Twitter</a>
+      <a href="#" class="share-btn wa">WhatsApp</a>
     </div>
 
-    <!-- Like Button -->
+    <!-- 🔹 Like + Comments -->
     <div class="like-box">
-      <button class="like-btn" onclick="likePost()">❤️ Like <span id="like-count">0</span></button>
+      <button id="likeBtn">👍 Like</button> <span id="likeCount">0</span>
     </div>
 
-    <!-- Comments -->
-    <div class="comments">
+    <div class="comment-box">
       <h3>Leave a Comment</h3>
       <form>
         <input type="text" placeholder="Your Name" required>
         <input type="email" placeholder="Your Email" required>
-        <textarea rows="4" placeholder="Your Comment"></textarea>
-        <button type="submit">Submit</button>
+        <textarea placeholder="Your Comment" required></textarea>
+        <button type="submit">Post Comment</button>
       </form>
     </div>
 
-    <!-- Related Posts -->
-    <div class="related">
+    <!-- 🔹 Related Posts -->
+    <div class="related-posts">
       <h3>Related Posts</h3>
       <ul>
-        {% for post in site.posts limit:3 %}
-          {% if post.url != page.url %}
-            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-          {% endif %}
-        {% endfor %}
+        <li><a href="/post-one/">Post One</a></li>
+        <li><a href="/post-two/">Post Two</a></li>
+        <li><a href="/post-three/">Post Three</a></li>
       </ul>
-    </div>
-
-  </div>
-
-<script>
-  // Simple Like Button Counter (client-side only)
-  let count = 0;
-  function likePost() {
-    count++;
-    document.getElementById("like-count").innerText = count;
-  }
-</script>
-
-</body>
-</html>
-      <li>Devotional teachings</li>
-      <li>Slokas / Mantras</li>
-      <li>Spiritual practices</li>
-    </ul>
-
-    <!-- Share Buttons -->
-    <div class="share-box">
-      <p>Share this post:</p>
-      <a href="#">Facebook</a>
-      <a href="#">Twitter</a>
-      <a href="#">WhatsApp</a>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Om Namo Narayanaya Bhakthi Channel. All rights reserved.</p>
-  </footer>
+  <!-- 🔹 Search Script -->
+  <script src="/assets/js/search.js"></script>
 
+  <!-- 🔹 Like Button Script -->
+  <script>
+    let likeCount = 0;
+    document.getElementById("likeBtn").addEventListener("click", function () {
+      likeCount++;
+      document.getElementById("likeCount").textContent = likeCount;
+    });
+  </script>
 </body>
 </html>
