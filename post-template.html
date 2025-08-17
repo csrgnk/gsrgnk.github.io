@@ -1,79 +1,71 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="/assets/css/style.css">
-
-  <!-- Lunr.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
 </head>
 <body>
-  <!-- 🔹 Site Name -->
+
+  <!-- Site Header -->
   <header class="site-header">
-    <h1><a href="/">My Website</a></h1>
+    <h1><a href="/">{{ site.title }}</a></h1>
   </header>
 
-  <!-- 🔹 Search Box -->
-  <div class="search-box">
-    <input type="text" id="searchBox" placeholder="Search posts...">
-  </div>
-  <ul id="results"></ul>
-
-  <!-- 🔹 Post Box -->
   <main class="post-container">
-    <div class="post-header">
-      <a class="back-home" href="/">← Back to Home</a>
-      <h2 class="post-title">{{ page.title }}</h2>
+
+    <!-- Back to Home -->
+    <div class="back-home">
+      <a href="/">← Back to Home</a>
     </div>
 
-    <div class="post-content">
+    <!-- Post Title -->
+    <div class="post-title-box">
+      <h2>{{ page.title }}</h2>
+    </div>
+
+    <!-- Post Content -->
+    <div class="post-content-box">
       {{ content }}
     </div>
 
-    <!-- 🔹 Share Buttons -->
+    <!-- Share Buttons -->
     <div class="share-box">
-      <a href="#" class="share-btn fb">Facebook</a>
-      <a href="#" class="share-btn tw">Twitter</a>
-      <a href="#" class="share-btn wa">WhatsApp</a>
+      <p>Share this post:</p>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" class="share-btn fb">F</a>
+      <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" target="_blank" class="share-btn tw">T</a>
+      <a href="https://api.whatsapp.com/send?text={{ page.title }} {{ page.url | absolute_url }}" target="_blank" class="share-btn wa">W</a>
     </div>
 
-    <!-- 🔹 Like + Comments -->
+    <!-- Like Button -->
     <div class="like-box">
-      <button id="likeBtn">👍 Like</button> <span id="likeCount">0</span>
+      <button id="likeBtn">👍 Like (<span id="likeCount">0</span>)</button>
     </div>
 
+    <!-- Comment Box -->
     <div class="comment-box">
       <h3>Leave a Comment</h3>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Comment" required></textarea>
-        <button type="submit">Post Comment</button>
+      <form id="commentForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Comment" required></textarea>
+        <button type="submit">Submit</button>
       </form>
+      <div id="commentsList"></div>
     </div>
 
-    <!-- 🔹 Related Posts -->
+    <!-- Related Posts -->
     <div class="related-posts">
       <h3>Related Posts</h3>
       <ul>
-        <li><a href="/post-one/">Post One</a></li>
-        <li><a href="/post-two/">Post Two</a></li>
-        <li><a href="/post-three/">Post Three</a></li>
+        {% for post in site.related_posts limit:3 %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {% endfor %}
       </ul>
     </div>
+
   </main>
 
-  <!-- 🔹 Search Script -->
-  <script src="/assets/js/search.js"></script>
-
-  <!-- 🔹 Like Button Script -->
-  <script>
-    let likeCount = 0;
-    document.getElementById("likeBtn").addEventListener("click", function () {
-      likeCount++;
-      document.getElementById("likeCount").textContent = likeCount;
-    });
-  </script>
 </body>
 </html>
