@@ -133,6 +133,64 @@
       margin: 5px 0;
       border-radius: 8px;
     }
+    <!-- Post content, comments, share buttons, etc. -->
+<div class="post-content">
+  ...
+</div>
+
+<!-- Related posts, search box, like button -->
+<div class="related">...</div>
+<div class="search-box">
+  <input type="text" id="search-input" placeholder="Search posts...">
+  <ul id="results"></ul>
+</div>
+
+<!-- Scripts go here, BEFORE closing body -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+<script>
+  let idx = null;
+  let store = {};
+  fetch('/search.json')
+    .then(response => response.json())
+    .then(data => {
+      idx = lunr(function () {
+        this.ref('url');
+        this.field('title');
+        this.field('content');
+        data.forEach(doc => {
+          this.add(doc);
+          store[doc.url] = doc;
+        });
+      });
+    });
+
+  document.getElementById('search-input').addEventListener('input', function () {
+    let query = this.value;
+    let resultsList = document.getElementById('results');
+    resultsList.innerHTML = '';
+    if (!idx || query.length < 2) return;
+    let results = idx.search(query);
+    results.forEach(r => {
+      let item = document.createElement('li');
+      let a = document.createElement('a');
+      a.href = store[r.ref].url;
+      a.textContent = store[r.ref].title;
+      item.appendChild(a);
+      resultsList.appendChild(item);
+    });
+  });
+
+  // Like button
+  let likeCount = 0;
+  function likePost() {
+    likeCount++;
+    document.getElementById("like-count").textContent = likeCount;
+  }
+</script>
+
+</body>
+</html>
+      
   </style>
 </head>
 <body>
