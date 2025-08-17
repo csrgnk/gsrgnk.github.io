@@ -1,0 +1,110 @@
+---
+layout: post
+title: "Dashakam 1 Samam 1 Lyrics in Telugu"
+permalink: "/dashakam-1-samam-1-lyrics/"
+date: 2025-08-17 18:00:00 +0530
+categories: "Dashakam 1"
+---
+<div class="container">
+
+  <!-- Category -->
+  <div class="post-category">
+    Category: {{ page.categories | join: ', ' }}
+  </div>
+
+  <!-- Post title -->
+  <div class="post-title">{{ page.title }}</div>
+
+  <!-- Post content -->
+  <div class="post-content">
+    <!-- Your Telugu lyrics HTML goes here -->
+    <p>ఓం నమో నారాయణాయ</p>
+    <p>అనంతం సర్వదేవేంద్రం …</p>
+  </div>
+
+  <!-- Share buttons -->
+  <div class="share-buttons">
+    <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank">F</a>
+    <a class="tw" href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" target="_blank">T</a>
+    <a class="wa" href="https://wa.me/?text={{ page.url | absolute_url }}" target="_blank">W</a>
+  </div>
+
+  <!-- Like button -->
+  <div class="like-box">
+    <button class="like-btn" onclick="likePost()">❤️ Like <span id="like-count">0</span></button>
+  </div>
+
+  <!-- Comments -->
+  <div class="comments">
+    <h3>Leave a Comment</h3>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="3" placeholder="Comment..." required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Related posts -->
+  <div class="related">
+    <h3>Related Posts</h3>
+    <ul>
+      {% for post in site.posts limit:5 %}
+        {% if post.url != page.url %}
+          <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Search box -->
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search...">
+    <ul id="results"></ul>
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+<script>
+  // Lunr.js search
+  let idx = null;
+  let store = {};
+  fetch('/search.json')
+    .then(response => response.json())
+    .then(data => {
+      idx = lunr(function () {
+        this.ref('url');
+        this.field('title');
+        this.field('content');
+        data.forEach(doc => {
+          this.add(doc);
+          store[doc.url] = doc;
+        });
+      });
+    });
+
+  document.getElementById('search-input').addEventListener('input', function () {
+    let query = this.value;
+    let resultsList = document.getElementById('results');
+    resultsList.innerHTML = '';
+    if (!idx || query.length < 2) return;
+    let results = idx.search(query);
+    results.forEach(r => {
+      let item = document.createElement('li');
+      let a = document.createElement('a');
+      a.href = store[r.ref].url;
+      a.textContent = store[r.ref].title;
+      item.appendChild(a);
+      resultsList.appendChild(item);
+    });
+  });
+
+  // Like button
+  let likeCount = 0;
+  function likePost() {
+    likeCount++;
+    document.getElementById("like-count").textContent = likeCount;
+  }
+</script>
