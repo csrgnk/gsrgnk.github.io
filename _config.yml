@@ -1,0 +1,11 @@
+title: "Dasabodha"
+baseurl: ""
+url: "https://dasabodha.omnnbc.in"
+
+# Force post URLs to be only /title/
+permalink: /:title/
+
+include:
+  - pages
+  - posts
+  
