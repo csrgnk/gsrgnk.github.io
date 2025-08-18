@@ -2,13 +2,79 @@
   <h1>Om Namo Narayanaya</h1>
   <p class="tagline">Bhakthi Channel</p>
 
-  <!-- Search -->
-  <div class="search-box">
-    <form action="https://www.google.com/search" method="get" target="_blank">
-      <input type="text" name="q" placeholder="Search..." required>
-      <button type="submit">Search</button>
-    </form>
-  </div>
+  <!-- Site Search Box + Dynamic Results -->
+<div class="search-box">
+  <input type="text" id="siteSearchInput" placeholder="Search posts and pages..." required>
+  <button id="siteSearchBtn">Search</button>
+</div>
+
+<!-- Search Results -->
+<div id="searchResults" style="margin-top:15px;"></div>
+
+<script>
+  const searchInput = document.getElementById('siteSearchInput');
+  const searchBtn = document.getElementById('siteSearchBtn');
+  const searchResults = document.getElementById('searchResults');
+
+  let posts = [];
+  let pages = [];
+
+  // Fetch posts.json and pages.json from your site
+  fetch('/posts.json')
+    .then(res => res.json())
+    .then(data => { posts = data; })
+    .catch(err => console.error("Posts fetch error:", err));
+
+  fetch('/pages.json')
+    .then(res => res.json())
+    .then(data => { pages = data; })
+    .catch(err => console.error("Pages fetch error:", err));
+
+  function searchSite(query){
+    const q = query.toLowerCase();
+    let results = [];
+
+    posts.forEach(post => {
+      if(post.title.toLowerCase().includes(q) || (post.content && post.content.toLowerCase().includes(q))){
+        results.push({type:"Post", title:post.title, url:"/"+post.slug+"/"});
+      }
+    });
+
+    pages.forEach(page => {
+      if(page.title.toLowerCase().includes(q) || (page.content && page.content.toLowerCase().includes(q))){
+        results.push({type:"Page", title:page.title, url:"/"+page.slug+"/"});
+      }
+    });
+
+    return results;
+  }
+
+  searchBtn.addEventListener('click', ()=>{
+    const query = searchInput.value.trim();
+    searchResults.innerHTML = "";
+    if(!query) return;
+
+    const results = searchSite(query);
+    if(results.length === 0){
+      searchResults.innerHTML = "<p>No results found.</p>";
+      return;
+    }
+
+    const ul = document.createElement('ul');
+    results.forEach(item=>{
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>[${item.type}]</strong> <a href="${item.url}">${item.title}</a>`;
+      ul.appendChild(li);
+    });
+    searchResults.appendChild(ul);
+  });
+
+  // Trigger search on Enter key
+  searchInput.addEventListener('keypress', e => {
+    if(e.key === 'Enter'){ e.preventDefault(); searchBtn.click(); }
+  });
+</script>
+
 
   <!-- Hamburger -->
   <button class="menu-toggle">☰</button>
