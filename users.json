@@ -1,14 +1,7 @@
 [
   {
     "username": "csadmin",
-    "email": "csrgnk@gmail.com",
-    "password": "Csr@db5025",
+    "password": "Csr@db48",
     "role": "admin"
-  },
-  {
-    "username": "editor1",
-    "email": "editor@example.com",
-    "password": "Editor@2025",
-    "role": "editor"
   }
 ]
