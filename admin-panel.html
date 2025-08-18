@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Dasabodha</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background:#f9f9f9; }
+    h1, h2 { color:#333; }
+    input, textarea, button { margin:5px 0; padding:8px; width:100%; max-width:500px; }
+    button { width:auto; cursor:pointer; }
+    #postsList div, #pagesTable, #subscriberTable { margin-top:10px; }
+    table { border-collapse: collapse; width: 100%; max-width:700px; }
+    th, td { border:1px solid #ccc; padding:6px; text-align:left; }
+    th { background:#eee; }
+  </style>
+</head>
+<body>
+  <h1>Admin Panel - Dasabodha</h1>
+
+  <!-- Posts Section -->
+  <section>
+    <h2>Posts Management</h2>
+    <input type="text" id="postTitle" placeholder="Post Title">
+    <input type="text" id="postSlug" placeholder="Post Slug (dashakam-1-samasam-5)">
+    <textarea id="postContent" rows="4" placeholder="Post Content"></textarea>
+    <input type="text" id="postCategory" placeholder="Category (e.g., Dashakam 1)">
+    <input type="text" id="metaDescription" placeholder="Meta Description">
+    <input type="text" id="focusKeyword" placeholder="Focus Keyword">
+    <input type="text" id="metaKeywords" placeholder="Meta Keywords (comma separated)">
+    <input type="text" id="youtubeUrl" placeholder="YouTube URL">
+    <button id="generateEmbedBtn">Generate Embed & Thumbnail</button>
+    <div id="mediaPreview"></div>
+    <button id="addPostBtn">Add Post</button>
+    <div id="postsList"></div>
+  </section>
+
+  <!-- Pages Section -->
+  <section>
+    <h2>Pages Management</h2>
+    <input type="text" id="pageTitle" placeholder="Page Title">
+    <input type="text" id="pageSlug" placeholder="Page Slug (about)">
+    <textarea id="pageContent" rows="4" placeholder="Page Content"></textarea>
+    <button id="addPageBtn">Add Page</button>
+    <table id="pagesTable">
+      <thead>
+        <tr><th>Title</th><th>URL</th><th>Actions</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Subscribers Section -->
+  <section>
+    <h2>Subscribers</h2>
+    <input type="text" id="subscriberName" placeholder="Name">
+    <input type="email" id="subscriberEmail" placeholder="Email">
+    <button id="addSubscriberBtn">Add Subscriber</button>
+    <table id="subscriberTable">
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Subscribed At</th><th>Actions</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- SEO / Sitemap / Robots -->
+  <section>
+    <h2>SEO & Sitemap</h2>
+    <button id="generateSitemapBtn">Generate Sitemap</button>
+    <button id="generateRobotsBtn">Generate robots.txt</button>
+    <pre id="robotsPreview"></pre>
+  </section>
+
+  <!-- Admin JS -->
+  <script src="scripts/admin.js"></script>
+</body>
+      </html>
+  
