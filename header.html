@@ -1,12 +1,12 @@
 <!-- Header Start -->
 <header>
-  <!-- Orange Main Box: Site Name + Tagline -->
-  <div class="main-box">
-    <h1 class="site-name">Om Namo Narayana</h1>
-    <p class="tagline">Your devotional Telugu resource</p>
+  <!-- Orange Top Box: Site Name + Tagline -->
+  <div class="top-box">
+    <h1 class="site-name">Om Namo Narayanaya</h1>
+    <p class="tagline">Bhakthi Channel</p>
   </div>
 
-  <!-- Blue Secondary Box: Section Title -->
+  <!-- Blue Section Box -->
   <div class="section-box">
     <h2>Dasabodha Grantha Telugu Lyrics</h2>
   </div>
@@ -18,10 +18,10 @@
   </div>
 
   <!-- Search Results -->
-  <div id="searchResults" style="margin-top:10px;"></div>
+  <div id="searchResults"></div>
 
   <!-- Navigation Menu -->
-  <nav>
+  <nav class="main-menu">
     <div class="menu-toggle" id="mobileMenuToggle">&#9776;</div>
     <ul class="menu" id="siteMenu">
       <li><a href="/">Home</a></li>
@@ -34,17 +34,17 @@
 
 <!-- Styles -->
 <style>
-  header { font-family:Arial,sans-serif; margin:0; padding:0; }
+  body { margin:0; font-family:Arial,sans-serif; }
 
-  /* Main Orange Box */
-  .main-box {
+  /* Orange Top Box */
+  .top-box {
     background:orange;
     color:#fff;
     text-align:center;
     padding:20px 10px;
   }
-  .main-box .site-name { font-size:28px; margin:0; font-weight:bold; }
-  .main-box .tagline { font-size:16px; margin:5px 0 0 0; }
+  .top-box .site-name { font-size:28px; margin:0; font-weight:bold; }
+  .top-box .tagline { font-size:16px; margin:5px 0 0 0; }
 
   /* Blue Section Box */
   .section-box {
@@ -62,10 +62,10 @@
   .search-box button:hover { background:#7777ee; }
 
   /* Search Results */
-  #searchResults { text-align:center; font-size:16px; }
+  #searchResults { text-align:center; font-size:16px; margin-bottom:15px; }
 
   /* Navigation Menu */
-  nav { background:#f2f2f2; }
+  nav.main-menu { background:#f2f2f2; width:100%; }
   .menu { list-style:none; display:flex; justify-content:center; padding:0; margin:0; gap:15px; }
   .menu li a { color:#333; text-decoration:none; padding:10px; display:block; font-weight:bold; }
   .menu li a:hover { text-decoration:underline; }
@@ -96,16 +96,15 @@
   let posts = [];
   let pages = [];
 
-  // Fetch posts.json and pages.json
   fetch('/posts.json')
     .then(res => res.json())
     .then(data => { posts = data; })
-    .catch(err => console.error("Posts fetch error:", err));
+    .catch(err => console.error(err));
 
   fetch('/pages.json')
     .then(res => res.json())
     .then(data => { pages = data; })
-    .catch(err => console.error("Pages fetch error:", err));
+    .catch(err => console.error(err));
 
   function searchSite(query){
     const q = query.toLowerCase();
