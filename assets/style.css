@@ -1,3 +1,6 @@
+/* ===========================
+   General Body Style
+   =========================== */
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -6,16 +9,25 @@ body {
   color: #333;
 }
 
+/* ===========================
+   Header
+   =========================== */
 header h1 {
   text-align: center;
   color: #2c3e50;
   margin-bottom: 30px;
 }
 
+/* ===========================
+   Headings
+   =========================== */
 h2, h3 {
   color: #34495e;
 }
 
+/* ===========================
+   Samasam List
+   =========================== */
 ul#samasam-list {
   list-style-type: decimal;
   padding-left: 20px;
@@ -31,6 +43,9 @@ ul#samasam-list li a:hover {
   text-decoration: underline;
 }
 
+/* ===========================
+   Navigation Links (Next / Back)
+   =========================== */
 nav a {
   text-decoration: none;
   color: #e67e22;
@@ -42,10 +57,16 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* ===========================
+   Paragraphs
+   =========================== */
 p {
   margin-bottom: 20px;
 }
 
+/* ===========================
+   Footer
+   =========================== */
 footer {
   text-align: center;
   margin-top: 40px;
@@ -55,6 +76,9 @@ footer {
   padding-top: 10px;
 }
 
+/* ===========================
+   Optional: Links inside paragraphs
+   =========================== */
 a {
   color: #2980b9;
   text-decoration: none;
@@ -62,4 +86,37 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* ===========================
+   Mobile Responsive
+   =========================== */
+@media (max-width: 768px) {
+  body {
+    margin: 10px;
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  h2, h3 {
+    font-size: 20px;
+  }
+
+  ul#samasam-list {
+    padding-left: 15px;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  footer {
+    font-size: 0.8em;
+    padding-top: 15px;
+  }
 }
