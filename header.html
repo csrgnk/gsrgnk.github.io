@@ -1,91 +1,60 @@
+<!-- Header Start -->
 <header>
-  <h1>Om Namo Narayanaya</h1>
-  <p class="tagline">Bhakthi Channel</p>
+  <div class="header-container">
+    <div class="site-branding">
+      <a href="/" class="site-name">Dasabodha</a>
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" id="siteSearchInput" placeholder="Search posts and pages...">
+        <button id="siteSearchBtn">Search</button>
+      </div>
+    </div>
 
-  <!-- Site Search Box + Dynamic Results -->
-<div class="search-box">
-  <input type="text" id="siteSearchInput" placeholder="Search posts and pages..." required>
-  <button id="siteSearchBtn">Search</button>
-</div>
+    <!-- Navigation Menu -->
+    <nav>
+      <div class="menu-toggle" id="mobileMenuToggle">&#9776;</div>
+      <ul class="menu" id="siteMenu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/admin-panel">Login/Register</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<!-- Search Results -->
-<div id="searchResults" style="margin-top:15px;"></div>
+<!-- Styles -->
+<style>
+  header { background:#333399; color:#fff; padding:10px 20px; }
+  .header-container { display:flex; flex-direction:column; align-items:flex-start; max-width:1200px; margin:auto; }
+  .site-branding { width:100%; margin-bottom:10px; }
+  .site-name { font-size:24px; font-weight:bold; color:#fff; text-decoration:none; }
+  .search-box { margin-top:10px; display:flex; width:100%; max-width:400px; }
+  .search-box input { flex:1; padding:8px 10px; border-radius:8px 0 0 8px; border:none; }
+  .search-box button { padding:8px 15px; border:none; background:#5555cc; color:#fff; border-radius:0 8px 8px 0; cursor:pointer; }
+  .search-box button:hover { background:#7777ee; }
 
-<script>
-  const searchInput = document.getElementById('siteSearchInput');
-  const searchBtn = document.getElementById('siteSearchBtn');
-  const searchResults = document.getElementById('searchResults');
+  nav { width:100%; }
+  .menu { list-style:none; display:flex; padding:0; margin:0; gap:15px; }
+  .menu li a { color:#fff; text-decoration:none; padding:8px 0; display:block; }
+  .menu li a:hover { text-decoration:underline; }
 
-  let posts = [];
-  let pages = [];
-
-  // Fetch posts.json and pages.json from your site
-  fetch('/posts.json')
-    .then(res => res.json())
-    .then(data => { posts = data; })
-    .catch(err => console.error("Posts fetch error:", err));
-
-  fetch('/pages.json')
-    .then(res => res.json())
-    .then(data => { pages = data; })
-    .catch(err => console.error("Pages fetch error:", err));
-
-  function searchSite(query){
-    const q = query.toLowerCase();
-    let results = [];
-
-    posts.forEach(post => {
-      if(post.title.toLowerCase().includes(q) || (post.content && post.content.toLowerCase().includes(q))){
-        results.push({type:"Post", title:post.title, url:"/"+post.slug+"/"});
-      }
-    });
-
-    pages.forEach(page => {
-      if(page.title.toLowerCase().includes(q) || (page.content && page.content.toLowerCase().includes(q))){
-        results.push({type:"Page", title:page.title, url:"/"+page.slug+"/"});
-      }
-    });
-
-    return results;
+  /* Mobile Styles */
+  .menu-toggle { display:none; font-size:28px; cursor:pointer; }
+  @media(max-width:768px){
+    .menu { flex-direction:column; display:none; width:100%; background:#333399; margin-top:10px; }
+    .menu li { width:100%; text-align:left; padding-left:10px; }
+    .menu-toggle { display:block; }
   }
+</style>
 
-  searchBtn.addEventListener('click', ()=>{
-    const query = searchInput.value.trim();
-    searchResults.innerHTML = "";
-    if(!query) return;
+<!-- Mobile Menu Script -->
+<script>
+  const mobileToggle = document.getElementById('mobileMenuToggle');
+  const siteMenu = document.getElementById('siteMenu');
 
-    const results = searchSite(query);
-    if(results.length === 0){
-      searchResults.innerHTML = "<p>No results found.</p>";
-      return;
-    }
-
-    const ul = document.createElement('ul');
-    results.forEach(item=>{
-      const li = document.createElement('li');
-      li.innerHTML = `<strong>[${item.type}]</strong> <a href="${item.url}">${item.title}</a>`;
-      ul.appendChild(li);
-    });
-    searchResults.appendChild(ul);
-  });
-
-  // Trigger search on Enter key
-  searchInput.addEventListener('keypress', e => {
-    if(e.key === 'Enter'){ e.preventDefault(); searchBtn.click(); }
+  mobileToggle.addEventListener('click', ()=>{
+    if(siteMenu.style.display === 'flex') siteMenu.style.display='none';
+    else siteMenu.style.display='flex';
   });
 </script>
-
-
-  <!-- Hamburger -->
-  <button class="menu-toggle">☰</button>
-
-  <!-- Navigation Menu -->
-  <nav>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="https://omnnbc.in/about-us/">About Us</a></li>
-      <li><a href="https://omnnbc.in/contact-us/">Contact Us</a></li>
-      <li><a href="https://omnnbc.in/privacy-policy/">Privacy Policy</a></li>
-    </ul>
-  </nav>
-</header>
