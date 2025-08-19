@@ -1,4 +1,4 @@
-<h2 style="text-align: center;">Dashakam 1 Samasam 1 :</h2>
+<h2 style="text-align: center;">Dashakam 1 Samasam 1  :</h2>
 <p style="text-align: center;">Dashakam 1 Samasam 1 :</p>
 <p dir="ltr" style="text-align: center;"><strong>దశక ప్రథమ ॥ స్తవననామ ॥</strong></p>
 <p dir="ltr" style="text-align: center;"><strong>ప్రథమ దశకము - ప్రథమ సమాసము</strong></p>
