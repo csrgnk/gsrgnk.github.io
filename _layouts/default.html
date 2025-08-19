@@ -6,35 +6,48 @@
   <title>{{ page.title }} | Om Namo Narayanaya</title>
   <link rel="stylesheet" href="/style.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background: orange; color: #fff; padding: 20px; text-align: center; border-radius: 0 0 12px 12px; }
-    header h1 { margin: 0; font-size: 28px; }
-    header p { margin: 5px 0 0 0; font-size: 16px; }
-    .tagline { background: #1a73e8; color: #fff; text-align: center; padding: 10px 0; font-size: 18px; font-weight: bold; }
-    .container { max-width: 800px; margin: 20px auto; padding: 15px; }
-    .post-content { background: #fff; padding: 15px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .share-section { margin: 20px 0; text-align: center; }
-    .share-section p { font-weight: bold; margin-bottom: 10px; }
-    .share-buttons a { display: inline-block; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 5px; color: #fff; text-align: center; text-decoration: none; font-size: 18px; }
-    .share-buttons .fb { background: #3b5998; }
-    .share-buttons .tw { background: #1da1f2; }
-    .share-buttons .wa { background: #25d366; }
-    .share-buttons .tg { background: #0088cc; }
-    .share-buttons .em { background: #dd4b39; }
-    .like-box { text-align: center; margin: 15px 0; }
-    .like-btn { background: #e91e63; color: #fff; padding: 8px 15px; border: none; border-radius: 12px; cursor: pointer; }
-    .comments { background: #fff; padding: 15px; border-radius: 12px; margin-top: 20px; }
-    .comments input, .comments textarea { width: 100%; padding: 8px; margin: 6px 0; border: 1px solid #ccc; border-radius: 8px; }
-    .related { margin-top: 20px; padding: 15px; background: #f1f1f1; border-radius: 12px; }
-    .related h3 { margin-top: 0; }
-    .related ul { list-style: none; padding: 0; }
-    .related li { margin: 5px 0; }
-    .search-box { text-align: center; margin: 15px auto; }
-    #search-input { width: 90%; padding: 10px; border-radius: 12px; border: 1px solid #ccc; font-size: 16px; }
-    #results { list-style: none; margin: 10px 0; padding: 0; }
-    #results li { background: #fff; padding: 8px; margin: 5px 0; border-radius: 8px; }
-    a.back-home { display: inline-block; padding: 6px 12px; background: #ff9800; color: #fff; border-radius: 8px; text-decoration: none; font-size: 14px; margin-bottom: 10px; }
-    @media (max-width: 600px) { .container { padding: 0 10px; } .post-content { padding: 15px; } }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: orange;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 0 0 12px 12px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 16px;
+    }
+    .tagline {
+      background: #1a73e8;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 15px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background: #eee;
+      font-size: 14px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -48,107 +61,13 @@
   <!-- Secondary tagline -->
   <div class="tagline">Dasabodha Grantha Telugu Lyrics</div>
 
-  <!-- Main Container -->
+  <!-- Page content -->
   <div class="container">
-
-    <!-- Back to Home -->
-    <a href="/" class="back-home">← Back to Home</a>
-
-    <!-- Post Content -->
-    <div class="post-content">
-      {{ content }}
-    </div>
-
-    <!-- Share Section -->
-    <div class="share-section">
-      <p><strong>Share this post:</strong> {{ page.title }}</p>
-      <div class="share-buttons">
-        <a class="wa" href="https://wa.me/?text={{ page.title | url_encode }}%0A{{ page.url | absolute_url | url_encode }}" target="_blank">W</a>
-        <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank">F</a>
-        <a class="tw" href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}" target="_blank">T</a>
-        <a class="tg" href="https://t.me/share/url?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}" target="_blank">TG</a>
-        <a class="em" href="mailto:?subject={{ page.title | url_encode }}&body={{ page.url | absolute_url | url_encode }}">@</a>
-      </div>
-    </div>
-
-    <!-- Like Button -->
-    <div class="like-box">
-      <button class="like-btn" onclick="likePost()">❤️ Like <span id="like-count">0</span></button>
-    </div>
-
-    <!-- Comments -->
-    <div class="comments">
-      <h3>Leave a Comment</h3>
-      <form>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea rows="3" placeholder="Comment..." required></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-
-    <!-- Related Posts -->
-    <div class="related">
-      <h3>Related Posts</h3>
-      <ul>
-        {% for post in site.posts limit:5 %}
-          {% if post.url != page.url %}
-            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-
-    <!-- Search Box -->
-    <div class="search-box">
-      <input type="text" id="search-input" placeholder="Search posts...">
-      <ul id="results"></ul>
-    </div>
-
+    {{ content }}
   </div>
 
   <!-- Footer -->
   <footer>&copy; 2025 Om Namo Narayanaya</footer>
 
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
-  <script>
-    // Lunr Search
-    let idx = null;
-    let store = {};
-    fetch('/search.json')
-      .then(response => response.json())
-      .then(data => {
-        idx = lunr(function () {
-          this.ref('url');
-          this.field('title');
-          this.field('content');
-          data.forEach(doc => { this.add(doc); store[doc.url] = doc; });
-        });
-      });
-
-    document.getElementById('search-input').addEventListener('input', function () {
-      let query = this.value;
-      let resultsList = document.getElementById('results');
-      resultsList.innerHTML = '';
-      if (!idx || query.length < 2) return;
-      let results = idx.search(query);
-      results.forEach(r => {
-        let item = document.createElement('li');
-        let a = document.createElement('a');
-        a.href = store[r.ref].url;
-        a.textContent = store[r.ref].title;
-        item.appendChild(a);
-        resultsList.appendChild(item);
-      });
-    });
-
-    // Like Button
-    let likeCount = 0;
-    function likePost() {
-      likeCount++;
-      document.getElementById("like-count").textContent = likeCount;
-    }
-  </script>
 </body>
 </html>
