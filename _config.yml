@@ -1,11 +1,26 @@
-title: "Dasabodha"
-baseurl: ""
-url: "https://dasabodha.omnnbc.in"
+# _config.yml
 
-# Force post URLs to be only /title/
-permalink: /:title/
+# Site-wide configuration options
+title: "Om Namo Narayanaya"
+description: "Bhakthi Channel"
+url: "https://your-site.com"  # Change this to your actual site URL
 
+# Permalink settings
+permalink: /:title/  # Use only the post title in the URL
+
+# Optional: You can define other settings as needed
+paginate: 5            # Number of posts per page (optional)
+paginate_path: "/page:num/"  # URL pattern for paginated pages (optional)
+
+# Include the required directories
 include:
-  - pages
-  - posts
-  
+  - _posts
+  - _layouts
+  - _includes
+  - _sass
+
+# Markdown processor settings (optional)
+markdown: kramdown  # You can use other processors like Redcarpet if preferred
+
+# Optional: Theme settings or other configurations
+theme: minima  # Change this based on the theme you are using
