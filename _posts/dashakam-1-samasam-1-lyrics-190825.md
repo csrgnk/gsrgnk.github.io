@@ -3,7 +3,6 @@
 <p dir="ltr" style="text-align: center;"><strong>దశక ప్రథమ ॥ స్తవననామ ॥</strong></p>
 <p dir="ltr" style="text-align: center;"><strong>ప్రథమ దశకము - ప్రథమ సమాసము</strong></p>
 
-
 [caption id="attachment_41" align="aligncenter" width="200"]<img class="wp-image-41 size-medium" src="https://dasabodha.omnnbc.com/wp-content/uploads/2025/07/साधु-और-हनुमान-की-आरती-1-200x300.png" alt="Dasabodha Dashakam 1 Started " width="200" height="300" /> Sri Rama Dasa swami Harathi to Hanuman ji[/caption]
 <p dir="ltr" style="text-align: center;">శ్రీరామ॥ శ్రోతె పుసతీ కోణగ్రంథ। కాయబోలిలెజీ యెథ |</p>
 <p dir="ltr" style="text-align: center;">శ్రవణ కేలియానె ప్రాప్త | కాయఆహె ॥    శ్రీరామ సమర్థ ||    || 1 ||</p>
