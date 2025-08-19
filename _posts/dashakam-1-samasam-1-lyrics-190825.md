@@ -79,3 +79,17 @@
 <p dir="ltr" style="text-align: center;"><strong>॥ శ్రీరామసమర్థ ॥ శ్రీరామ ॥</strong></p>
 <p dir="ltr" style="text-align: center;"><strong>Thank you for watching Dashakam 1 Samasam 1</strong></p>
 <p dir="ltr" style="text-align: center;"><strong>Please watch to </strong><strong><a href="https://dasabodha.omnnbc.com/dashakam-1-samasam-2/">Dashakam 1 Samasam 2</a></strong></p>
+---
+layout: post
+title: "Dashakam 1 Samasam 1 Lyrics"
+date: 2025-08-19
+---
+
+# Dashakam 1 Samasam 1 Lyrics
+
+Here is the content of your post. You can add text, images, and other elements in Markdown format.
+
+Example:
+- **Line 1**: Lorem ipsum.
+- **Line 2**: Another line of lyrics.
+- 
