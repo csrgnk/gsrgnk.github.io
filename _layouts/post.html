@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | Om Namo Narayanaya</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+    header { background: orange; color: #fff; padding: 20px; text-align: center; border-radius: 0 0 12px 12px; }
+    header h1 { margin: 0; font-size: 28px; }
+    header p { margin: 5px 0 0 0; font-size: 16px; }
+    .tagline { background: #1a73e8; color: #fff; text-align: center; padding: 10px 0; font-size: 18px; font-weight: bold; }
+    .container { max-width: 800px; margin: 20px auto; padding: 15px; }
+    .post-title { background: #ffe0b2; padding: 15px; border-radius: 12px; font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+    .post-content { background: #fff3e0; padding: 15px; border-radius: 12px; margin-bottom: 20px; line-height: 1.6; }
+    .share-section { text-align: center; margin: 20px 0; }
+    .share-section p { font-weight: bold; margin-bottom: 10px; }
+    .share-buttons a { display: inline-block; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 5px; color: #fff; text-align: center; text-decoration: none; font-size: 18px; }
+    .share-buttons .fb { background: #3b5998; }
+    .share-buttons .tw { background: #1da1f2; }
+    .share-buttons .wa { background: #25d366; }
+    .share-buttons .tg { background: #0088cc; }
+    .share-buttons .em { background: #dd4b39; }
+    .like-box { text-align: center; margin: 15px 0; }
+    .like-btn { background: #e91e63; color: #fff; padding: 8px 15px; border: none; border-radius: 12px; cursor: pointer; }
+    .comments { background: #fff; padding: 15px; border-radius: 12px; margin-top: 20px; }
+    .comments input, .comments textarea { width: 100%; padding: 8px; margin: 6px 0; border: 1px solid #ccc; border-radius: 8px; }
+    .related { margin-top: 20px; padding: 15px; background: #f1f1f1; border-radius: 12px; }
+    .related h3 { margin-top: 0; }
+    .related ul { list-style: none; padding: 0; }
+    .related li { margin: 5px 0; }
+    a.back-home { display: inline-block; padding: 6px 12px; background: #ff9800; color: #fff; border-radius: 8px; text-decoration: none; font-size: 14px; margin-bottom: 10px; }
+    @media (max-width: 600px) { .container { padding: 0 10px; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Om Namo Narayanaya</h1>
+    <p>Bhakthi Channel</p>
+  </header>
+
+  <!-- Secondary tagline -->
+  <div class="tagline">Dasabodha Grantha Telugu Lyrics</div>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <a href="/" class="back-home">← Back to Home</a>
+
+    <!-- Post Title -->
+    <div class="post-title">{{ page.title }}</div>
+
+    <!-- Post Content -->
+    <div class="post-content">
+      {{ content }}
+    </div>
+
+    <!-- Share Buttons -->
+    <div class="share-section">
+      <p><strong>Share this post:</strong> {{ page.title }}</p>
+      <div class="share-buttons">
+        <a class="wa" href="https://wa.me/?text={{ page.title | url_encode }}%0A{{ page.url | absolute_url | url_encode }}" target="_blank">W</a>
+        <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank">F</a>
+        <a class="tw" href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}" target="_blank">T</a>
+        <a class="tg" href="https://t.me/share/url?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}" target="_blank">TG</a>
+        <a class="em" href="mailto:?subject={{ page.title | url_encode }}&body={{ page.url | absolute_url | url_encode }}">@</a>
+      </div>
+    </div>
+
+    <!-- Like Button -->
+    <div class="like-box">
+      <button class="like-btn" onclick="likePost()">❤️ Like <span id="like-count">0</span></button>
+    </div>
+
+    <!-- Comments -->
+    <div class="comments">
+      <h3>Leave a Comment</h3>
+      <form>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="3" placeholder="Comment..." required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <!-- Related Posts -->
+    <div class="related">
+      <h3>Related Posts</h3>
+      <ul>
+        {% for post in site.posts limit:5 %}
+          {% if post.url != page.url %}
+            <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>&copy; 2025 Om Namo Narayanaya</footer>
+
+  <script>
+    // Like Button
+    let likeCount = 0;
+    function likePost() {
+      likeCount++;
+      document.getElementById("like-count").textContent = likeCount;
+    }
+  </script>
+
+</body>
+</html>
