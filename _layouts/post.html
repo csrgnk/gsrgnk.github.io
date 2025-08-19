@@ -12,8 +12,18 @@
     header p { margin: 5px 0 0 0; font-size: 16px; }
     .tagline { background: #1a73e8; color: #fff; text-align: center; padding: 10px 0; font-size: 18px; font-weight: bold; }
     .container { max-width: 800px; margin: 20px auto; padding: 15px; }
+    a.back-home { display: inline-block; padding: 6px 12px; background: #ff9800; color: #fff; border-radius: 8px; text-decoration: none; font-size: 14px; margin-bottom: 10px; }
+    /* Category */
+    .category { font-size: 14px; font-weight: bold; margin-bottom: 10px; color: #555; }
+
+    /* Post title */
     .post-title { background: #ffe0b2; padding: 15px; border-radius: 12px; font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px; }
-    .post-content { background: #fff3e0; padding: 15px; border-radius: 12px; margin-bottom: 20px; line-height: 1.6; }
+
+    /* Post content */
+    .post-content { background: #fff3e0; padding: 20px; border-radius: 12px; margin-bottom: 20px; line-height: 1.8; min-height: 200px; font-size: 18px; }
+    .post-content p { margin: 12px 0; }
+
+    /* Share Section */
     .share-section { text-align: center; margin: 20px 0; }
     .share-section p { font-weight: bold; margin-bottom: 10px; }
     .share-buttons a { display: inline-block; width: 40px; height: 40px; line-height: 40px; border-radius: 50%; margin: 0 5px; color: #fff; text-align: center; text-decoration: none; font-size: 18px; }
@@ -22,15 +32,21 @@
     .share-buttons .wa { background: #25d366; }
     .share-buttons .tg { background: #0088cc; }
     .share-buttons .em { background: #dd4b39; }
+
+    /* Like Button */
     .like-box { text-align: center; margin: 15px 0; }
     .like-btn { background: #e91e63; color: #fff; padding: 8px 15px; border: none; border-radius: 12px; cursor: pointer; }
+
+    /* Comments */
     .comments { background: #fff; padding: 15px; border-radius: 12px; margin-top: 20px; }
     .comments input, .comments textarea { width: 100%; padding: 8px; margin: 6px 0; border: 1px solid #ccc; border-radius: 8px; }
+
+    /* Related Posts */
     .related { margin-top: 20px; padding: 15px; background: #f1f1f1; border-radius: 12px; }
     .related h3 { margin-top: 0; }
     .related ul { list-style: none; padding: 0; }
     .related li { margin: 5px 0; }
-    a.back-home { display: inline-block; padding: 6px 12px; background: #ff9800; color: #fff; border-radius: 8px; text-decoration: none; font-size: 14px; margin-bottom: 10px; }
+
     @media (max-width: 600px) { .container { padding: 0 10px; } }
   </style>
 </head>
@@ -45,10 +61,14 @@
   <!-- Secondary tagline -->
   <div class="tagline">Dasabodha Grantha Telugu Lyrics</div>
 
-  <!-- Main Container -->
   <div class="container">
 
     <a href="/" class="back-home">← Back to Home</a>
+
+    <!-- Category -->
+    {% if page.categories %}
+      <div class="category">Category: {{ page.categories | join: ', ' }}</div>
+    {% endif %}
 
     <!-- Post Title -->
     <div class="post-title">{{ page.title }}</div>
