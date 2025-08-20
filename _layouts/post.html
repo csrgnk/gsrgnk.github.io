@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: orange;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 15px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    h2 {
+      margin-top: 0;
+      color: brown;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #333;
+      color: white;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="{{ "/" | relative_url }}" style="color:white; text-decoration:none;">
+      {{ site.title }}
+    </a>
+  </header>
+
+  <main>
+    <article>
+      <h2>{{ page.title }}</h2>
+      <div class="content">
+        {{ content }}
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>© {{ site.time | date: "%Y" }} {{ site.title }}</p>
+  </footer>
+</body>
+</html>
