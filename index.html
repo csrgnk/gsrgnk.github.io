@@ -1,7 +1,110 @@
 ---
-layout: home
-title: "Home"
-pagination:
-  enabled: true
-  per_page: 10
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namo Narayanaya Bhakthi Channel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: orange;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin: 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        nav li {
+            margin-right: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        
+        .search-bar input[type="search"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 200px;
+        }
+        
+        .search-bar button {
+            padding: 10px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #555;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Namo Narayanaya Bhakthi Channel</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="                
+            <li><a href="#">About Us</a></li>
+            <li><a href="                          
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="search-bar">
+            <form>
+                <input type="search" placeholder="Search...">
+                <button>Search</button>
+            </form>
+        </section>
+        <section>
+            <!-- Posts will be displayed here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Namo Narayanaya Bhakthi Channel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
