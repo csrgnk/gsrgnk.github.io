@@ -1,1 +1,14 @@
+# Site settings
+title: "Namo Narayanaya Bhakthi Channel"
+description: "Dasabodha Grantha Telugu Lyrics"
+
+# URL settings
 permalink: /:title/
+
+# Defaults (so you don't need to write layout: post in every file)
+defaults:
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
+      
