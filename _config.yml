@@ -1,14 +1,36 @@
 # Site settings
 title: "Namo Narayanaya Bhakthi Channel"
 description: "Dasabodha Grantha Telugu Lyrics"
+baseurl: "" # keep empty for GitHub Pages project root
+url: "https://gsrgnk.github.io" # replace with your custom domain when ready
 
-# URL settings
+# Permalink structure
 permalink: /:title/
 
-# Defaults (so you don't need to write layout: post in every file)
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Collections
+collections:
+  posts:
+    output: true
+
+# Plugins (make sure GitHub Pages supports them)
+plugins:
+  - jekyll-paginate
+
+# Defaults for posts
 defaults:
   - scope:
-      path: "_posts"
+      path: ""
+      type: "posts"
     values:
       layout: post
-      
+      author: "Admin"
+
+# Exclude unnecessary files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
