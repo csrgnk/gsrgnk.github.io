@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} - Namo Narayanaya Bhakthi Channel</title>
+
+  <!-- Font Awesome for share icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Embedded CSS -->
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #f8f8f8; color: #222; }
+
+    /* Header */
+    header { background: orange; text-align: center; padding: 20px; color: white; }
+    header h1 { margin:0; font-size: 24px; }
+    header .tagline { font-size: 14px; margin-top: 4px; }
+
+    /* Search box */
+    .search-box { margin: 10px 0; }
+    .search-box input { padding: 6px; border: none; border-radius: 4px; width: 70%; max-width: 250px; }
+    .search-box button { padding: 6px 12px; border: none; background: #222; color: #fff; border-radius: 4px; cursor: pointer; }
+
+    /* Navigation */
+    nav ul { list-style: none; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top:10px; padding:0; }
+    nav ul li a { color: white; text-decoration: none; padding:6px 10px; font-weight:bold; }
+    nav ul li a:hover { background: rgba(255,255,255,0.2); border-radius:5px; }
+    .menu-toggle { display:none; position:absolute; right:15px; top:15px; background:none; border:none; font-size:24px; color:#fff; cursor:pointer; }
+
+    /* Breadcrumb */
+    .breadcrumb { background:#eee; padding:8px 15px; margin:15px auto; max-width:1000px; border-radius:6px; font-size:14px; }
+    .breadcrumb a { color:#ff6600; text-decoration:none; font-weight:bold; }
+
+    /* Post Box */
+    .post-box { background:white; margin:20px auto; padding:20px; border-radius:12px; max-width:800px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    .post-box h2 { color:#e65100; margin-top:0; }
+    .post-box h3 { color:#333; margin-top:20px; }
+
+    /* Share Buttons */
+    .share-box { margin-top:20px; }
+    .share-box p { font-weight:bold; }
+    .share-box a { display:inline-block; margin:5px; padding:8px 12px; border-radius:6px; text-decoration:none; color:white; font-size:14px; }
+    .share-box a.facebook { background:#1877f2; }
+    .share-box a.twitter { background:#1da1f2; }
+    .share-box a.whatsapp { background:#25d366; }
+
+    /* Footer */
+    footer { background:#000; color:#fff; text-align:center; padding:15px; margin-top:20px; font-size:14px; }
+
+    /* Mobile Responsive */
+    @media (max-width:768px) {
+      nav ul { display:none; flex-direction:column; background:orange; padding:10px; text-align:center; }
+      nav ul.show { display:flex; }
+      .menu-toggle { display:block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Namo Narayanaya</h1>
+    <p class="tagline">Bhakthi Channel</p>
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="menu-toggle">☰</button>
+
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="{{ "/" | relative_url }}">Home</a></li>
+        <li><a href="{{ "/about" | relative_url }}">About Us</a></li>
+        <li><a href="{{ "/contact" | relative_url }}">Contact Us</a></li>
+        <li><a href="{{ "/privacy-policy" | relative_url }}">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="{{ "/" | relative_url }}">Home</a> › {{ page.title }}
+  </div>
+
+  <!-- Post Content -->
+  <main class="post-box">
+    <h2>{{ page.title }}</h2>
+    {{ content }}
+
+    <!-- Share Buttons -->
+    <div class="share-box">
+      <p>Share this post:</p>
+      <a class="facebook" href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a class="twitter" href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      <a class="whatsapp" href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Namo Narayanaya Bhakthi Channel. All rights reserved.</p>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector("nav ul");
+    toggleBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  </script>
+
+</body>
+</html>
