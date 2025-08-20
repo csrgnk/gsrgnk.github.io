@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ post-title }} - Namo Narayanaya Bhakthi Channel</title>
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+
+  <!-- Header Box -->
+  <div class="header-box">
+    <div class="site-name">Namo Narayanaya Bhakthi Channel</div>
+    <div class="subtitle">Dasabodha Grantha Telugu Lyrics</div>
+  </div>
+
+  <!-- Back to Home -->
+  <div class="back-home">
+    <a href="../../">← Back to Home</a>
+  </div>
+
+  <!-- Post Title Box -->
+  <div class="post-title-box">
+    <h2>{{ post-title }}</h2>
+  </div>
+
+  <!-- Post Content Box -->
+  <div class="post-content-box">
+    {{ post-content }}
+  </div>
+
+  <!-- Share Buttons -->
+  <div class="share-box">
+    <span>Share this post:</span>
+    <button class="share-btn" onclick="sharePost('facebook')">Facebook</button>
+    <button class="share-btn" onclick="sharePost('twitter')">Twitter</button>
+    <button class="share-btn" onclick="sharePost('whatsapp')">WhatsApp</button>
+  </div>
+
+  <!-- Like Button -->
+  <div class="like-box">
+    <button id="likeBtn">👍 Like</button> <span id="likeCount">0</span> likes
+  </div>
+
+  <!-- Comments Box -->
+  <div class="comments-box">
+    <h3>Leave a Comment</h3>
+    <form id="commentForm">
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="email" name="email" placeholder="Your Email" required><br>
+      <textarea name="comment" placeholder="Your Comment" rows="4" required></textarea><br>
+      <button type="submit">Submit Comment</button>
+    </form>
+    <div id="commentsList"></div>
+  </div>
+
+  <!-- Footer Box -->
+  <div class="footer-box">
+    <footer>© <span id="year"></span> Namo Narayanaya Bhakthi Channel</footer>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+  <script>
+    // Share Post
+    function sharePost(platform){
+      const postTitle = document.querySelector('.post-title-box h2').innerText;
+      const postURL = window.location.href;
+      let shareURL = '';
+
+      switch(platform){
+        case 'facebook':
+          shareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postURL)}`;
+          break;
+        case 'twitter':
+          shareURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(postTitle)}&url=${encodeURIComponent(postURL)}`;
+          break;
+        case 'whatsapp':
+          shareURL = `https://api.whatsapp.com/send?text=${encodeURIComponent(postTitle + ' ' + postURL)}`;
+          break;
+      }
+      window.open(shareURL,'_blank');
+    }
+
+    // Like Button
+    let likes = 0;
+    document.getElementById('likeBtn').addEventListener('click', () => {
+      likes++;
+      document.getElementById('likeCount').innerText = likes;
+    });
+
+    // Comments
+    const form = document.getElementById('commentForm');
+    const commentsList = document.getElementById('commentsList');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = form.name.value;
+      const email = form.email.value;
+      const comment = form.comment.value;
+
+      const commentItem = document.createElement('div');
+      commentItem.classList.add('comment-item');
+      commentItem.innerHTML = `<strong>${name}</strong> (${email}): <p>${comment}</p>`;
+      commentsList.appendChild(commentItem);
+
+      form.reset();
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
