@@ -3,12 +3,112 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ post-title }} - Namo Narayanaya Bhakthi Channel</title>
-  <link rel="stylesheet" href="../../assets/css/styles.css">
+  <title>Post Title - Namo Narayanaya Bhakthi Channel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-box {
+      background-color: orange;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .subtitle {
+      background-color: #3399ff;
+      padding: 5px;
+      margin-top: 5px;
+      font-size: 1.1em;
+    }
+
+    .back-home {
+      margin: 15px;
+    }
+
+    .back-home a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .post-title-box {
+      background-color: #ffd699;
+      margin: 15px;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .post-content-box {
+      background-color: #ffffff;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 12px; /* Rounded rectangle */
+      line-height: 1.6;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .share-box, .like-box, .comments-box {
+      margin: 15px;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 12px;
+    }
+
+    .share-btn {
+      margin: 5px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #3399ff;
+      color: white;
+    }
+
+    .like-box button {
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      background-color: #ff6600;
+      color: white;
+    }
+
+    .comments-box input, .comments-box textarea, .comments-box button {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .footer-box {
+      text-align: center;
+      padding: 15px;
+      background-color: #333;
+      color: white;
+      margin-top: 20px;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .comment-item {
+      margin-top: 10px;
+      padding: 8px;
+      background-color: #e0e0e0;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header Box -->
+  <!-- Header -->
   <div class="header-box">
     <div class="site-name">Namo Narayanaya Bhakthi Channel</div>
     <div class="subtitle">Dasabodha Grantha Telugu Lyrics</div>
@@ -19,19 +119,22 @@
     <a href="../../">← Back to Home</a>
   </div>
 
-  <!-- Post Title Box -->
+  <!-- Post Title -->
   <div class="post-title-box">
-    <h2>{{ post-title }}</h2>
+    Post Title Here
   </div>
 
-  <!-- Post Content Box -->
+  <!-- Post Content -->
   <div class="post-content-box">
-    {{ post-content }}
+    <p>
+      <!-- Replace this text with your devotional content -->
+      Your devotional content goes here.
+    </p>
   </div>
 
   <!-- Share Buttons -->
   <div class="share-box">
-    <span>Share this post:</span>
+    <span>Share this post:</span><br>
     <button class="share-btn" onclick="sharePost('facebook')">Facebook</button>
     <button class="share-btn" onclick="sharePost('twitter')">Twitter</button>
     <button class="share-btn" onclick="sharePost('whatsapp')">WhatsApp</button>
@@ -46,27 +149,28 @@
   <div class="comments-box">
     <h3>Leave a Comment</h3>
     <form id="commentForm">
-      <input type="text" name="name" placeholder="Your Name" required><br>
-      <input type="email" name="email" placeholder="Your Email" required><br>
-      <textarea name="comment" placeholder="Your Comment" rows="4" required></textarea><br>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="comment" placeholder="Your Comment" rows="4" required></textarea>
       <button type="submit">Submit Comment</button>
     </form>
     <div id="commentsList"></div>
   </div>
 
-  <!-- Footer Box -->
+  <!-- Footer -->
   <div class="footer-box">
-    <footer>© <span id="year"></span> Namo Narayanaya Bhakthi Channel</footer>
+    © <span id="year"></span> Namo Narayanaya Bhakthi Channel
   </div>
 
-  <script src="../../assets/js/main.js"></script>
   <script>
+    // Footer Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     // Share Post
     function sharePost(platform){
-      const postTitle = document.querySelector('.post-title-box h2').innerText;
+      const postTitle = document.querySelector('.post-title-box').innerText;
       const postURL = window.location.href;
       let shareURL = '';
-
       switch(platform){
         case 'facebook':
           shareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postURL)}`;
@@ -91,23 +195,18 @@
     // Comments
     const form = document.getElementById('commentForm');
     const commentsList = document.getElementById('commentsList');
-
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = form.name.value;
       const email = form.email.value;
       const comment = form.comment.value;
-
       const commentItem = document.createElement('div');
       commentItem.classList.add('comment-item');
       commentItem.innerHTML = `<strong>${name}</strong> (${email}): <p>${comment}</p>`;
       commentsList.appendChild(commentItem);
-
       form.reset();
     });
-
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
