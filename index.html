@@ -8,27 +8,31 @@
 </head>
 <body>
 
-  <!-- Top Site Name -->
-  <div class="site-name">Namo Narayanaya Bhakthi Channel</div>
+  <!-- Header with Site Name and Subtitle -->
+  <div class="header-box">
+    <div class="site-name">Namo Narayanaya Bhakthi Channel</div>
+    <div class="subtitle">Dasabodha Grantha Telugu Lyrics</div>
+  </div>
 
-  <!-- Subtitle -->
-  <div class="subtitle">Dasabodha Grantha Telugu Lyrics</div>
+  <!-- Menu Button (Top) -->
+  <div class="menu-btn">
+    <span>☰ Home</span> | <span>About Us</span> | <span>Contact Us</span> | <span>Privacy Policy</span>
+  </div>
 
-  <!-- Dashakam 1 Samasams Links -->
-  <div class="content">
-    <h3>Dashakam 1</h3>
-    <ul>
-      <li><a href="posts/dashakam-1-samasam-1-lyrics/">Samasam 1</a></li>
-      <li><a href="posts/dashakam-1-samasam-2-lyrics/">Samasam 2</a></li>
-      <li><a href="posts/dashakam-1-samasam-3-lyrics/">Samasam 3</a></li>
-      <li><a href="posts/dashakam-1-samasam-4-lyrics/">Samasam 4</a></li>
-      <li><a href="posts/dashakam-1-samasam-5-lyrics/">Samasam 5</a></li>
-      <li><a href="posts/dashakam-1-samasam-6-lyrics/">Samasam 6</a></li>
-      <li><a href="posts/dashakam-1-samasam-7-lyrics/">Samasam 7</a></li>
-      <li><a href="posts/dashakam-1-samasam-8-lyrics/">Samasam 8</a></li>
-      <li><a href="posts/dashakam-1-samasam-9-lyrics/">Samasam 9</a></li>
-      <li><a href="posts/dashakam-1-samasam-10-lyrics/">Samasam 10</a></li>
-    </ul>
+  <h3>Dashakam 1</h3>
+
+  <!-- Samasam Links as Rectangle Boxes -->
+  <div class="samasam-links">
+    <a class="samasam-box" href="posts/dashakam-1-samasam-1-lyrics/">Samasam 1</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-2-lyrics/">Samasam 2</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-3-lyrics/">Samasam 3</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-4-lyrics/">Samasam 4</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-5-lyrics/">Samasam 5</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-6-lyrics/">Samasam 6</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-7-lyrics/">Samasam 7</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-8-lyrics/">Samasam 8</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-9-lyrics/">Samasam 9</a>
+    <a class="samasam-box" href="posts/dashakam-1-samasam-10-lyrics/">Samasam 10</a>
   </div>
 
   <!-- Pagination -->
@@ -37,8 +41,14 @@
   </div>
 
   <!-- Footer -->
-  <footer>© <span id="year"></span> Namo Narayanaya Bhakthi Channel</footer>
+  <div class="footer-box">
+    <footer>© <span id="year"></span> Namo Narayanaya Bhakthi Channel</footer>
+  </div>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
