@@ -1,7 +1,22 @@
 ---
+layout: post
 title: "దశకం 1 సమాసం 1 లిరిక్స్"
 date: 2025-08-19
+permalink: /dashakam-1-samasam-1-lyrics/
 ---
+
+<h2 style="text-align: center;">Dashakam 1 Samasam 1 :</h2>
+<p style="text-align: center;">Dashakam 1 Samasam 1 :</p>
+<p dir="ltr" style="text-align: center;"><strong>దశక ప్రథమ ॥ స్తవననామ ॥</strong></p>
+<p dir="ltr" style="text-align: center;"><strong>ప్రథమ దశకము - ప్రథమ సమాసము</strong></p>
+
+[caption id="attachment_41" align="aligncenter" width="200"]
+<img class="wp-image-41 size-medium" src="https://dasabodha.omnnbc.com/wp-content/uploads/2025/07/साधु-और-हनुमान-की-आरती-1-200x300.png" alt="Dasabodha Dashakam 1 Started " width="200" height="300" /> 
+Sri Rama Dasa swami Harathi to Hanuman ji
+[/caption]
+
+<p dir="ltr" style="text-align: center;">శ్రీరామ॥ శ్రోతె పుసతీ కోణగ్రంథ। కాయబోలిలెజీ యెథ |</p>
+
 <h2 style="text-align: center;">Dashakam 1 Samasam 1 :</h2>
 <p style="text-align: center;">Dashakam 1 Samasam 1 :</p>
 <p dir="ltr" style="text-align: center;"><strong>దశక ప్రథమ ॥ స్తవననామ ॥</strong></p>
