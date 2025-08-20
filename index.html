@@ -1,41 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Om Namo Narayanaya</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- Header Load -->
-  <div id="header"></div>
-
-  <!-- Main Content -->
-  <main>
-    <h2>Welcome to Om Namo Narayanaya</h2>
-    <p>This is your homepage. You can paste your WordPress post content here.</p>
-  </main>
-
-  <!-- Footer Load -->
-  <div id="footer"></div>
-
-  <!-- Script to Load Header & Footer -->
-  <script>
-    async function loadFile(id, file) {
-      const response = await fetch(file);
-      const content = await response.text();
-      document.getElementById(id).innerHTML = content;
-    }
-    loadFile("header", "header.html");
-    loadFile("footer", "footer.html");
-
-    // Mobile Menu Toggle
-    document.addEventListener("click", function(e){
-      if(e.target.classList.contains("menu-toggle")){
-        document.querySelector("nav ul").classList.toggle("show");
-      }
-    });
-  </script>
-</body>
-</html>
+---
+layout: home
+title: "Home"
+pagination:
+  enabled: true
+  per_page: 10
+---
