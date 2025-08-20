@@ -1,0 +1,8 @@
+/* Minimal styles for a clean look */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; }
+.site-header, .site-footer { padding: 16px; border-bottom: 1px solid #ddd; }
+.site-footer { border-top: 1px solid #ddd; border-bottom: none; text-align: center; }
+.nav a { margin-right: 12px; text-decoration: none; }
+.container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; }
