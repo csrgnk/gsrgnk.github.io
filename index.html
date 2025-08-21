@@ -1,54 +1,40 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Namo Narayanaya Bhakthi Channel</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
+---
+layout: default
+title: "{{ site.title }}"
+---
 
-  <!-- Header with Site Name and Subtitle -->
-  <div class="header-box">
-    <div class="site-name">Namo Narayanaya Bhakthi Channel</div>
-    <div class="subtitle">Dasabodha Grantha Telugu Lyrics</div>
-  </div>
+{% include header.html %}
 
-  <!-- Menu Button (Top) -->
-  <div class="menu-btn">
-    <span>☰ Home</span> | <span>About Us</span> | <span>Contact Us</span> | <span>Privacy Policy</span>
-  </div>
+<main style="padding:20px; max-width:800px; margin:0 auto;">
 
-  <h3>Dashakam 1</h3>
+  <!-- Recent Posts Section -->
+  <section id="recent-posts">
+    <h2 style="margin-bottom:15px; border-bottom:2px solid #ddd; padding-bottom:5px;">Latest Posts</h2>
+    <ul style="list-style:none; padding-left:0;">
+      {% for post in site.posts limit:10 %}
+        <li style="margin-bottom:15px; padding-bottom:10px; border-bottom:1px solid #eee;">
+          <a href="{{ post.url }}" style="font-size:18px; color:#007bff; text-decoration:none;">
+            {{ post.title }}
+          </a>
+          <br>
+          <small style="color:#666;">{{ post.date | date: "%d %b %Y" }}</small>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
 
-  <!-- Samasam Links as Rectangle Boxes -->
-  <div class="samasam-links">
-    <a class="samasam-box" href="posts/dashakam-1-samasam-1-lyrics/">Samasam 1</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-2-lyrics/">Samasam 2</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-3-lyrics/">Samasam 3</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-4-lyrics/">Samasam 4</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-5-lyrics/">Samasam 5</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-6-lyrics/">Samasam 6</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-7-lyrics/">Samasam 7</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-8-lyrics/">Samasam 8</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-9-lyrics/">Samasam 9</a>
-    <a class="samasam-box" href="posts/dashakam-1-samasam-10-lyrics/">Samasam 10</a>
-  </div>
+  <!-- Tagline Box -->
+  <section id="about" style="margin-top:30px; text-align:center;">
+    <div style="background-color:#f8d7da; color:#721c24; display:inline-block; padding:10px 20px; border-radius:10px;">
+      {{ site.tagline }}
+    </div>
+  </section>
 
-  <!-- Pagination -->
-  <div class="pagination">
-    <a href="page2/index.html">Next → Dashakam 2</a>
-  </div>
+  <!-- Optional: Site Description or About Section -->
+  <section id="description" style="margin-top:20px; text-align:center; color:#333;">
+    <p>{{ site.description }}</p>
+  </section>
 
-  <!-- Footer -->
-  <div class="footer-box">
-    <footer>© <span id="year"></span> Namo Narayanaya Bhakthi Channel</footer>
-  </div>
+</main>
 
-  <script src="assets/js/main.js"></script>
-  <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+{% include footer.html %}
