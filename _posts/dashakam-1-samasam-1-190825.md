@@ -2,6 +2,7 @@
 layout: post
 title: "Dashakam 1 Samasam 1"
 date: 2025-08-19
+permalink: /dashakam-1-samasam-1-190825/
 ---
 
 Welcome to **Namo Narayanaya Bhakthi Channel**.  
