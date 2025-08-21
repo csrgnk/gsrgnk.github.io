@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: yourusername/dasabodha-site # Replace with your GitHub repo
+  branch: main # or your default branch
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{slug}}-{{year}}{{month}}{{day}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "_pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "_config.yml"
+        label: "General Settings"
+        fields:
+          - { label: "Site Name", name: "title", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Footer Text", name: "footer_text", widget: "text" }
+          - { label: "Google Verification Code", name: "google_verification_code", widget: "string" }
+          - { label: "AdSense Code", name: "adsense_code", widget: "text" }
+          
