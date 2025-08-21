@@ -16,19 +16,19 @@ layout: default
   </section>
 
   <!-- Post Content Box -->
-  <section class="post-content-box" style="border:1px solid #ddd; padding:20px; border-radius:8px; margin-bottom:20px;">
+  <section class="post-content-box">
     {{ content }}
   </section>
 
   <!-- Share Buttons -->
-  <section class="share-buttons" style="margin-bottom:20px;">
+  <section class="share-buttons" style="margin:20px 0;">
     <p style="font-weight:bold;">Share this post:</p>
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}&t={{ page.title }}" target="_blank">Facebook</a> |
     <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" target="_blank">Twitter</a> |
     <a href="https://wa.me/?text={{ page.title }}%20{{ page.url | absolute_url }}" target="_blank">WhatsApp</a>
   </section>
 
-  <!-- Comment Box (Disqus) -->
+  <!-- Comments (Disqus) -->
   <section class="comments" style="margin-bottom:20px;">
     <div id="disqus_thread"></div>
     <script>
